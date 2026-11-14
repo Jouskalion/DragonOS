@@ -1,0 +1,6 @@
+links=0
+touch: ghost: No such file or directory
+TOUCH_RC=1
+mkdir: can't create directory 'child': No such file or directory
+MKDIR_RC=1
+total 0

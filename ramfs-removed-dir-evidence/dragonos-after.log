@@ -1,0 +1,469 @@
+[WARN] /dev/vhost-vsock not accessible; skip vsock device
+[WARN] Hint: sudo modprobe vhost_vsock, and make sure you are in the kvm group
+[INFO] Guest console TERM=xterm (source=host)
+================== DragonOS QEMU Command Preview ==================
+Binary: /nix/store/7gvddvsjdz4vs8d7b14h8lmzp73g6h83-qemu-host-cpu-only-10.1.2/bin/qemu-system-x86_64
+Base Flags: -m 2G -smp '2,cores=2,threads=1,sockets=1' -usb -device 'qemu-xhci,id=xhci,p2=8,p3=4' -D qemu.log -boot 'order=d' -rtc 'clock=host,base=localtime' --nographic -serial chardev:mux -monitor chardev:mux -chardev 'stdio,id=mux,mux=on,signal=off,logfile=serial_opt.txt' -device virtio-serial -device 'virtconsole,chardev=mux'
+Mem Args: -object memory-backend-file,size=2G,id=dragonos-qemu-shm.ram,mem-path=/dev/shm/dragonos-qemu-2254.ram,share=on
+Arch Flags: -machine q35,memory-backend=dragonos-qemu-shm.ram -cpu IvyBridge,apic,x2apic,+fpu,check,+vmx, -machine accel=tcg
+Boot Args: -kernel ./bin/kernel/kernel.elf -append rw init=/bin/busybox init AUTO_TEST=none SYSCALL_TEST_DIR=/opt/gvisor DUNITEST_DIR=/opt/tests/dunitest  console=/dev/hvc0 TERM=xterm
+Disk Args: -device virtio-blk-pci,drive=disk -device pci-bridge,chassis_nr=1,id=pci.1 -device pcie-root-port -drive id=disk,file=./bin/disk-image-x86_64.img,if=none,format=raw
+Net Args: -netdev user,id=hostnet0,hostfwd=tcp::12580-:12580 -device virtio-net-pci,vectors=5,netdev=hostnet0,id=net0
+Rng Args: -device virtio-rng-pci
+Vsock Args: 
+Gdb Args: 
+Host Port: 12580
+==================================================================
+
+QEMU emulator version 10.1.2
+Copyright (c) 2003-2025 Fabrice Bellard and the QEMU Project developers
+qemu-system-x86_64: warning: TCG doesn't support requested feature: CPUID[eax=01h].ECX.vmx [bit 5]
+qemu-system-x86_64: warning: TCG doesn't support requested feature: CPUID[eax=01h].ECX.tsc-deadline [bit 24]
+qemu-system-x86_64: warning: TCG doesn't support requested feature: MSR(48Eh).vmx-vintr-pending [bit 2]
+qemu-system-x86_64: warning: TCG doesn't support requested feature: MSR(48Eh).vmx-tsc-offset [bit 3]
+qemu-system-x86_64: warning: TCG doesn't support requested feature: MSR(48Eh).vmx-hlt-exit [bit 7]
+qemu-system-x86_64: warning: TCG doesn't support requested feature: MSR(48Eh).vmx-invlpg-exit [bit 9]
+qemu-system-x86_64: warning: TCG doesn't support requested feature: MSR(48Eh).vmx-mwait-exit [bit 10]
+qemu-system-x86_64: warning: TCG doesn't support requested feature: MSR(48Eh).vmx-rdpmc-exit [bit 11]
+qemu-system-x86_64: warning: TCG doesn't support requested feature: MSR(48Eh).vmx-rdtsc-exit [bit 12]
+qemu-system-x86_64: warning: TCG doesn't support requested feature: MSR(48Eh).vmx-cr3-load-noexit [bit 15]
+qemu-system-x86_64: warning: TCG doesn't support requested feature: MSR(48Eh).vmx-cr3-store-noexit [bit 16]
+qemu-system-x86_64: warning: TCG doesn't support requested feature: MSR(48Eh).vmx-cr8-load-exit [bit 19]
+qemu-system-x86_64: warning: TCG doesn't support requested feature: MSR(48Eh).vmx-cr8-store-exit [bit 20]
+qemu-system-x86_64: warning: TCG doesn't support requested feature: MSR(48Eh).vmx-flexpriority [bit 21]
+qemu-system-x86_64: warning: TCG doesn't support requested feature: MSR(48Eh).vmx-vnmi-pending [bit 22]
+qemu-system-x86_64: warning: TCG doesn't support requested feature: MSR(48Eh).vmx-movdr-exit [bit 23]
+qemu-system-x86_64: warning: TCG doesn't support requested feature: MSR(48Eh).vmx-io-exit [bit 24]
+qemu-system-x86_64: warning: TCG doesn't support requested feature: MSR(48Eh).vmx-io-bitmap [bit 25]
+qemu-system-x86_64: warning: TCG doesn't support requested feature: MSR(48Eh).vmx-mtf [bit 27]
+qemu-system-x86_64: warning: TCG doesn't support requested feature: MSR(48Eh).vmx-msr-bitmap [bit 28]
+qemu-system-x86_64: warning: TCG doesn't support requested feature: MSR(48Eh).vmx-monitor-exit [bit 29]
+qemu-system-x86_64: warning: TCG doesn't support requested feature: MSR(48Eh).vmx-pause-exit [bit 30]
+qemu-system-x86_64: warning: TCG doesn't support requested feature: MSR(48Eh).vmx-secondary-ctls [bit 31]
+qemu-system-x86_64: warning: TCG doesn't support requested feature: MSR(48Bh).vmx-apicv-xapic [bit 0]
+qemu-system-x86_64: warning: TCG doesn't support requested feature: MSR(48Bh).vmx-ept [bit 1]
+qemu-system-x86_64: warning: TCG doesn't support requested feature: MSR(48Bh).vmx-desc-exit [bit 2]
+qemu-system-x86_64: warning: TCG doesn't support requested feature: MSR(48Bh).vmx-rdtscp-exit [bit 3]
+qemu-system-x86_64: warning: TCG doesn't support requested feature: MSR(48Bh).vmx-apicv-x2apic [bit 4]
+qemu-system-x86_64: warning: TCG doesn't support requested feature: MSR(48Bh).vmx-vpid [bit 5]
+qemu-system-x86_64: warning: TCG doesn't support requested feature: MSR(48Bh).vmx-wbinvd-exit [bit 6]
+qemu-system-x86_64: warning: TCG doesn't support requested feature: MSR(48Bh).vmx-unrestricted-guest [bit 7]
+qemu-system-x86_64: warning: TCG doesn't support requested feature: MSR(48Bh).vmx-apicv-register [bit 8]
+qemu-system-x86_64: warning: TCG doesn't support requested feature: MSR(48Bh).vmx-apicv-vid [bit 9]
+qemu-system-x86_64: warning: TCG doesn't support requested feature: MSR(48Bh).vmx-rdrand-exit [bit 11]
+qemu-system-x86_64: warning: TCG doesn't support requested feature: MSR(48Dh).vmx-intr-exit [bit 0]
+qemu-system-x86_64: warning: TCG doesn't support requested feature: MSR(48Dh).vmx-nmi-exit [bit 3]
+qemu-system-x86_64: warning: TCG doesn't support requested feature: MSR(48Dh).vmx-vnmi [bit 5]
+qemu-system-x86_64: warning: TCG doesn't support requested feature: MSR(48Dh).vmx-preemption-timer [bit 6]
+qemu-system-x86_64: warning: TCG doesn't support requested feature: MSR(48Dh).vmx-posted-intr [bit 7]
+qemu-system-x86_64: warning: TCG doesn't support requested feature: MSR(48Fh).vmx-exit-nosave-debugctl [bit 2]
+qemu-system-x86_64: warning: TCG doesn't support requested feature: MSR(48Fh).vmx-exit-load-perf-global-ctrl [bit 12]
+qemu-system-x86_64: warning: TCG doesn't support requested feature: MSR(48Fh).vmx-exit-ack-intr [bit 15]
+qemu-system-x86_64: warning: TCG doesn't support requested feature: MSR(48Fh).vmx-exit-save-pat [bit 18]
+qemu-system-x86_64: warning: TCG doesn't support requested feature: MSR(48Fh).vmx-exit-load-pat [bit 19]
+qemu-system-x86_64: warning: TCG doesn't support requested feature: MSR(48Fh).vmx-exit-save-efer [bit 20]
+qemu-system-x86_64: warning: TCG doesn't support requested feature: MSR(48Fh).vmx-exit-load-efer [bit 21]
+qemu-system-x86_64: warning: TCG doesn't support requested feature: MSR(48Fh).vmx-exit-save-preemption-timer [bit 22]
+qemu-system-x86_64: warning: TCG doesn't support requested feature: MSR(490h).vmx-entry-noload-debugctl [bit 2]
+qemu-system-x86_64: warning: TCG doesn't support requested feature: MSR(490h).vmx-entry-ia32e-mode [bit 9]
+qemu-system-x86_64: warning: TCG doesn't support requested feature: MSR(490h).vmx-entry-load-perf-global-ctrl [bit 13]
+qemu-system-x86_64: warning: TCG doesn't support requested feature: MSR(490h).vmx-entry-load-pat [bit 14]
+qemu-system-x86_64: warning: TCG doesn't support requested feature: MSR(490h).vmx-entry-load-efer [bit 15]
+qemu-system-x86_64: warning: TCG doesn't support requested feature: MSR(485h).vmx-store-lma [bit 5]
+qemu-system-x86_64: warning: TCG doesn't support requested feature: MSR(485h).vmx-activity-hlt [bit 6]
+qemu-system-x86_64: warning: TCG doesn't support requested feature: MSR(48Ch).vmx-ept-execonly [bit 0]
+qemu-system-x86_64: warning: TCG doesn't support requested feature: MSR(48Ch).vmx-page-walk-4 [bit 6]
+qemu-system-x86_64: warning: TCG doesn't support requested feature: MSR(48Ch) [bit 14]
+qemu-system-x86_64: warning: TCG doesn't support requested feature: MSR(48Ch).vmx-ept-2mb [bit 16]
+qemu-system-x86_64: warning: TCG doesn't support requested feature: MSR(48Ch).vmx-ept-1gb [bit 17]
+qemu-system-x86_64: warning: TCG doesn't support requested feature: MSR(48Ch).vmx-invept [bit 20]
+qemu-system-x86_64: warning: TCG doesn't support requested feature: MSR(48Ch).vmx-invept-single-context [bit 25]
+qemu-system-x86_64: warning: TCG doesn't support requested feature: MSR(48Ch).vmx-invept-all-context [bit 26]
+qemu-system-x86_64: warning: TCG doesn't support requested feature: MSR(48Ch).vmx-invvpid [bit 32]
+qemu-system-x86_64: warning: TCG doesn't support requested feature: MSR(48Ch).vmx-invvpid-single-addr [bit 40]
+qemu-system-x86_64: warning: TCG doesn't support requested feature: MSR(48Ch).vmx-invept-single-context [bit 41]
+qemu-system-x86_64: warning: TCG doesn't support requested feature: MSR(48Ch).vmx-invvpid-all-context [bit 42]
+qemu-system-x86_64: warning: TCG doesn't support requested feature: MSR(48Ch).vmx-invept-single-context-noglobals [bit 43]
+qemu-system-x86_64: warning: TCG doesn't support requested feature: MSR(480h).vmx-ins-outs [bit 54]
+qemu-system-x86_64: warning: TCG doesn't support requested feature: MSR(480h).vmx-true-ctls [bit 55]
+qemu-system-x86_64: warning: TCG doesn't support requested feature: CPUID[eax=01h].ECX.vmx [bit 5]
+qemu-system-x86_64: warning: TCG doesn't support requested feature: CPUID[eax=01h].ECX.tsc-deadline [bit 24]
+qemu-system-x86_64: warning: TCG doesn't support requested feature: MSR(48Eh).vmx-vintr-pending [bit 2]
+qemu-system-x86_64: warning: TCG doesn't support requested feature: MSR(48Eh).vmx-tsc-offset [bit 3]
+qemu-system-x86_64: warning: TCG doesn't support requested feature: MSR(48Eh).vmx-hlt-exit [bit 7]
+qemu-system-x86_64: warning: TCG doesn't support requested feature: MSR(48Eh).vmx-invlpg-exit [bit 9]
+qemu-system-x86_64: warning: TCG doesn't support requested feature: MSR(48Eh).vmx-mwait-exit [bit 10]
+qemu-system-x86_64: warning: TCG doesn't support requested feature: MSR(48Eh).vmx-rdpmc-exit [bit 11]
+qemu-system-x86_64: warning: TCG doesn't support requested feature: MSR(48Eh).vmx-rdtsc-exit [bit 12]
+qemu-system-x86_64: warning: TCG doesn't support requested feature: MSR(48Eh).vmx-cr3-load-noexit [bit 15]
+qemu-system-x86_64: warning: TCG doesn't support requested feature: MSR(48Eh).vmx-cr3-store-noexit [bit 16]
+qemu-system-x86_64: warning: TCG doesn't support requested feature: MSR(48Eh).vmx-cr8-load-exit [bit 19]
+qemu-system-x86_64: warning: TCG doesn't support requested feature: MSR(48Eh).vmx-cr8-store-exit [bit 20]
+qemu-system-x86_64: warning: TCG doesn't support requested feature: MSR(48Eh).vmx-flexpriority [bit 21]
+qemu-system-x86_64: warning: TCG doesn't support requested feature: MSR(48Eh).vmx-vnmi-pending [bit 22]
+qemu-system-x86_64: warning: TCG doesn't support requested feature: MSR(48Eh).vmx-movdr-exit [bit 23]
+qemu-system-x86_64: warning: TCG doesn't support requested feature: MSR(48Eh).vmx-io-exit [bit 24]
+qemu-system-x86_64: warning: TCG doesn't support requested feature: MSR(48Eh).vmx-io-bitmap [bit 25]
+qemu-system-x86_64: warning: TCG doesn't support requested feature: MSR(48Eh).vmx-mtf [bit 27]
+qemu-system-x86_64: warning: TCG doesn't support requested feature: MSR(48Eh).vmx-msr-bitmap [bit 28]
+qemu-system-x86_64: warning: TCG doesn't support requested feature: MSR(48Eh).vmx-monitor-exit [bit 29]
+qemu-system-x86_64: warning: TCG doesn't support requested feature: MSR(48Eh).vmx-pause-exit [bit 30]
+qemu-system-x86_64: warning: TCG doesn't support requested feature: MSR(48Eh).vmx-secondary-ctls [bit 31]
+qemu-system-x86_64: warning: TCG doesn't support requested feature: MSR(48Bh).vmx-apicv-xapic [bit 0]
+qemu-system-x86_64: warning: TCG doesn't support requested feature: MSR(48Bh).vmx-ept [bit 1]
+qemu-system-x86_64: warning: TCG doesn't support requested feature: MSR(48Bh).vmx-desc-exit [bit 2]
+qemu-system-x86_64: warning: TCG doesn't support requested feature: MSR(48Bh).vmx-rdtscp-exit [bit 3]
+qemu-system-x86_64: warning: TCG doesn't support requested feature: MSR(48Bh).vmx-apicv-x2apic [bit 4]
+qemu-system-x86_64: warning: TCG doesn't support requested feature: MSR(48Bh).vmx-vpid [bit 5]
+qemu-system-x86_64: warning: TCG doesn't support requested feature: MSR(48Bh).vmx-wbinvd-exit [bit 6]
+qemu-system-x86_64: warning: TCG doesn't support requested feature: MSR(48Bh).vmx-unrestricted-guest [bit 7]
+qemu-system-x86_64: warning: TCG doesn't support requested feature: MSR(48Bh).vmx-apicv-register [bit 8]
+qemu-system-x86_64: warning: TCG doesn't support requested feature: MSR(48Bh).vmx-apicv-vid [bit 9]
+qemu-system-x86_64: warning: TCG doesn't support requested feature: MSR(48Bh).vmx-rdrand-exit [bit 11]
+qemu-system-x86_64: warning: TCG doesn't support requested feature: MSR(48Dh).vmx-intr-exit [bit 0]
+qemu-system-x86_64: warning: TCG doesn't support requested feature: MSR(48Dh).vmx-nmi-exit [bit 3]
+qemu-system-x86_64: warning: TCG doesn't support requested feature: MSR(48Dh).vmx-vnmi [bit 5]
+qemu-system-x86_64: warning: TCG doesn't support requested feature: MSR(48Dh).vmx-preemption-timer [bit 6]
+qemu-system-x86_64: warning: TCG doesn't support requested feature: MSR(48Dh).vmx-posted-intr [bit 7]
+qemu-system-x86_64: warning: TCG doesn't support requested feature: MSR(48Fh).vmx-exit-nosave-debugctl [bit 2]
+qemu-system-x86_64: warning: TCG doesn't support requested feature: MSR(48Fh).vmx-exit-load-perf-global-ctrl [bit 12]
+qemu-system-x86_64: warning: TCG doesn't support requested feature: MSR(48Fh).vmx-exit-ack-intr [bit 15]
+qemu-system-x86_64: warning: TCG doesn't support requested feature: MSR(48Fh).vmx-exit-save-pat [bit 18]
+qemu-system-x86_64: warning: TCG doesn't support requested feature: MSR(48Fh).vmx-exit-load-pat [bit 19]
+qemu-system-x86_64: warning: TCG doesn't support requested feature: MSR(48Fh).vmx-exit-save-efer [bit 20]
+qemu-system-x86_64: warning: TCG doesn't support requested feature: MSR(48Fh).vmx-exit-load-efer [bit 21]
+qemu-system-x86_64: warning: TCG doesn't support requested feature: MSR(48Fh).vmx-exit-save-preemption-timer [bit 22]
+qemu-system-x86_64: warning: TCG doesn't support requested feature: MSR(490h).vmx-entry-noload-debugctl [bit 2]
+qemu-system-x86_64: warning: TCG doesn't support requested feature: MSR(490h).vmx-entry-ia32e-mode [bit 9]
+qemu-system-x86_64: warning: TCG doesn't support requested feature: MSR(490h).vmx-entry-load-perf-global-ctrl [bit 13]
+qemu-system-x86_64: warning: TCG doesn't support requested feature: MSR(490h).vmx-entry-load-pat [bit 14]
+qemu-system-x86_64: warning: TCG doesn't support requested feature: MSR(490h).vmx-entry-load-efer [bit 15]
+qemu-system-x86_64: warning: TCG doesn't support requested feature: MSR(485h).vmx-store-lma [bit 5]
+qemu-system-x86_64: warning: TCG doesn't support requested feature: MSR(485h).vmx-activity-hlt [bit 6]
+qemu-system-x86_64: warning: TCG doesn't support requested feature: MSR(48Ch).vmx-ept-execonly [bit 0]
+qemu-system-x86_64: warning: TCG doesn't support requested feature: MSR(48Ch).vmx-page-walk-4 [bit 6]
+qemu-system-x86_64: warning: TCG doesn't support requested feature: MSR(48Ch) [bit 14]
+qemu-system-x86_64: warning: TCG doesn't support requested feature: MSR(48Ch).vmx-ept-2mb [bit 16]
+qemu-system-x86_64: warning: TCG doesn't support requested feature: MSR(48Ch).vmx-ept-1gb [bit 17]
+qemu-system-x86_64: warning: TCG doesn't support requested feature: MSR(48Ch).vmx-invept [bit 20]
+qemu-system-x86_64: warning: TCG doesn't support requested feature: MSR(48Ch).vmx-invept-single-context [bit 25]
+qemu-system-x86_64: warning: TCG doesn't support requested feature: MSR(48Ch).vmx-invept-all-context [bit 26]
+qemu-system-x86_64: warning: TCG doesn't support requested feature: MSR(48Ch).vmx-invvpid [bit 32]
+qemu-system-x86_64: warning: TCG doesn't support requested feature: MSR(48Ch).vmx-invvpid-single-addr [bit 40]
+qemu-system-x86_64: warning: TCG doesn't support requested feature: MSR(48Ch).vmx-invept-single-context [bit 41]
+qemu-system-x86_64: warning: TCG doesn't support requested feature: MSR(48Ch).vmx-invvpid-all-context [bit 42]
+qemu-system-x86_64: warning: TCG doesn't support requested feature: MSR(48Ch).vmx-invept-single-context-noglobals [bit 43]
+qemu-system-x86_64: warning: TCG doesn't support requested feature: MSR(480h).vmx-ins-outs [bit 54]
+qemu-system-x86_64: warning: TCG doesn't support requested feature: MSR(480h).vmx-true-ctls [bit 55]
+c[?7l[2J[0mSeaBIOS (version rel-1.17.0-0-gb52ca86e094d-prebuilt.qemu.org)
+
+
+iPXE (http://ipxe.org) 00:04.0 CA00 PCI2.10 PnP PMM+7EFC7950+7EF27950 CA00
+Press Ctrl-B to configure iPXE (PCI 00:04.0)...                                                                               
+
+
+Booting from ROM..
+finish_scm_init
+ [ INFO ] (src/libs/printk.rs:362)	 Logging initialized
+[ INFO ] (src/arch/x86_64/fpu.rs:113)	 XSAVE enabled: XCR0=0x7, area_size=832 bytes, features: x87=true, SSE=true, AVX=true
+[ INFO ] (src/arch/x86_64/init/pvh/mod.rs:138)	 pvh boot cmdline: "rw init=/bin/busybox init AUTO_TEST=none SYSCALL_TEST_DIR=/opt/gvisor DUNITEST_DIR=/opt/tests/dunitest  console=/dev/hvc0 TERM=xterm"
+[ INFO ] (src/init/init.rs:148)	 DragonOS release 6.6.21-dragonos version #1-dragonos-0.4.0 Sat Nov 14 07:02:48 UTC 2026 (rustc) #a5619fc-dirty
+[ INFO ] (src/init/init.rs:156)	 build time: Sat Nov 14 07:02:48 UTC 2026 | git branch: fix/ramfs-removed-dir | git commit: a5619fc-dirty | build: hbb@LAPTOP-SJUTKJH2
+mm_init
+ mm_init() called
+init_memory_area by pvh boot
+ init_memory_area_from pvh boot end
+ [ INFO ] (src/arch/x86_64/init/pvh/mod.rs:204)	 Total memory size: 0x8fff4000, Usable memory size: 0x7ff77c00
+[ INFO ] (src/arch/x86_64/mm/mod.rs:698)	 Successfully initialized buddy allocator
+x86 64 mm init done
+ [ INFO ] (src/mm/mmio_buddy.rs:745)	 MMIO buddy memory pool init done
+[ INFO ] (src/filesystem/procfs/kmsg.rs:42)	 kmsg_init
+[ INFO ] (src/filesystem/procfs/kmsg.rs:47)	 kmsg_init done
+[ INFO ] (src/mm/page.rs:80)	 page_manager_init
+[ INFO ] (src/mm/page.rs:87)	 page_manager_init done
+[ INFO ] (src/mm/page.rs:1129)	 page_reclaimer_init
+[ INFO ] (src/mm/page.rs:1136)	 page_reclaimer_init done
+[ INFO ] (src/mm/init.rs:81)	 mm init done.
+scm reinit failed.
+ [ INFO ] (src/arch/x86_64/init/pvh/mod.rs:102)	 pvh: HvmStartInfo: magic=0x336ec578 version=1 flags=0x0 nr_modules=0 rsdp_paddr=0xf5290 memmap_paddr=0x588 memmap_entries=8
+[ INFO ] (src/filesystem/procfs/mod.rs:110)	 Initializing ProcFS...
+[ INFO ] (src/filesystem/procfs/mod.rs:120)	 ProcFS mounted at /proc
+[ INFO ] (src/filesystem/devfs/mod.rs:1228)	 Initializing devtmpfs...
+[ INFO ] (src/filesystem/devfs/mod.rs:1243)	 devtmpfs mounted.
+[ INFO ] (src/filesystem/sysfs/mod.rs:47)	 Initializing SysFS...
+[ INFO ] (src/process/namespace/net_namespace.rs:1337)	 Initialized root net namespace
+[ INFO ] (src/filesystem/sysfs/mod.rs:61)	 SysFS mounted.
+[ INFO ] (src/filesystem/vfs/vcore.rs:92)	 Successfully initialized VFS!
+[ INFO ] (src/driver/base/device/init.rs:73)	 devices init success
+[ INFO ] (src/driver/acpi/mod.rs:65)	 Initializing Acpi Manager...
+[ INFO ] (src/driver/acpi/mod.rs:85)	 Acpi Manager initialized.
+[ INFO ] (src/driver/acpi/reboot.rs:248)	 ACPI S5 poweroff handler registered
+[ INFO ] (src/process/manager/mod.rs:377)	 Process Manager initialized.
+[ INFO ] (src/filesystem/cgroup2/mod.rs:109)	 Cgroup2 mounted at /sys/fs/cgroup
+[1;33m[ WARN ] [0m(src/arch/x86_64/driver/apic/lapic_vector.rs:259)	 arch_early_irq_init: todo: add vector matrix
+[ INFO ] (src/arch/x86_64/driver/apic/mod.rs:655)	 Initializing apic for cpu ProcessorId(0)
+[ INFO ] (src/arch/x86_64/driver/apic/x2apic.rs:50)	 x2APIC software enabled.
+[ INFO ] (src/arch/x86_64/driver/apic/mod.rs:660)	 x2APIC initialized for cpu ProcessorId(0)
+[ INFO ] (src/arch/x86_64/driver/apic/mod.rs:684)	 Apic initialized.
+[ INFO ] (src/arch/x86_64/driver/apic/ioapic.rs:397)	 Initializing ioapic...
+[ INFO ] (src/arch/x86_64/driver/apic/ioapic.rs:71)	 Initializing ioapic...
+[ INFO ] (src/arch/x86_64/driver/apic/ioapic.rs:428)	 IO Apic initialized.
+[ INFO ] (src/arch/x86_64/acpi.rs:28)	 early_acpi_boot_init: cpu_count: 2
+
+[ INFO ] (src/exception/softirq.rs:38)	 Initializing softirq...
+[ INFO ] (src/exception/softirq.rs:47)	 Softirq initialized.
+[ INFO ] (src/syscall/mod.rs:45)	 Initializing syscall...
+[ INFO ] (src/syscall/mod.rs:47)	 Syscall init successfully!
+[ INFO ] (src/time/timekeeping.rs:592)	 Initializing timekeeping module...
+[ INFO ] (src/time/jiffies.rs:94)	 jiffies_init sccessfully
+[ INFO ] (src/time/timekeeping.rs:614)	 timekeeping_init successfully
+[ INFO ] (src/time/timer.rs:304)	 timer initialized successfully
+[ INFO ] (src/process/kthread.rs:374)	 Initializing kernel thread mechanism stage1...
+[ INFO ] (src/process/kthread.rs:405)	 Initializing kernel thread mechanism stage1 complete
+[ INFO ] (src/arch/x86_64/driver/hpet.rs:104)	 HPET has 2 timers
+[ INFO ] (src/arch/x86_64/driver/hpet.rs:226)	 HPET enabled
+[ INFO ] (src/driver/clocksource/acpi_pm.rs:218)	 apic_pmtmr I/O port: 1544
+[ INFO ] (src/driver/clocksource/acpi_pm.rs:298)	 ACPI PM Timer registered as clocksource sccessfully
+[1;33m[ WARN ] [0m(src/arch/x86_64/driver/tsc.rs:365)	 TSCManager: Failed to read reference value, tsc delta too high
+[1;33m[ WARN ] [0m(src/arch/x86_64/driver/tsc.rs:224)	 Unable to calibrate against PIT
+[ INFO ] (src/arch/x86_64/driver/tsc.rs:237)	 Using HPET reference calibration
+[ INFO ] (src/arch/x86_64/driver/tsc.rs:125)	 Detected 4167.363 MHz processor
+[ INFO ] (src/arch/x86_64/driver/tsc.rs:130)	 Detected 4167.363 MHz TSC
+[1;33m[ WARN ] [0m(src/arch/x86_64/driver/tsc.rs:52)	 TSC is not invariant, skip TSC clocksource registration
+[ INFO ] (src/time/clocksource.rs:1263)	 Switching to the clocksource "acpi_pm"
+
+[1;33m[ WARN ] [0m(src/arch/x86_64/vm/vmx/mod.rs:3987)	 VMX not supported or enabled
+[1;33m[ WARN ] [0m(src/init/init.rs:117)	 vmx init failed, will not be enabled
+[ INFO ] (src/process/kthread.rs:414)	 Initializing kernel thread mechanism stage2...
+[ INFO ] (src/process/kthread.rs:426)	 Initialize kernel thread mechanism stage2 complete
+[ INFO ] (src/tracepoint/mod.rs:270)	 tracepoint_data_start: 0xffff800001b77000, tracepoint_data_end: 0xffff800001b77100
+[ INFO ] (src/tracepoint/mod.rs:280)	 tracepoint_data_len: 16
+[ INFO ] (src/tracepoint/mod.rs:289)	 tracepoint registered: syscalls:sys_enter_write
+[ INFO ] (src/tracepoint/mod.rs:289)	 tracepoint registered: syscalls:sys_exit_execve
+[ INFO ] (src/tracepoint/mod.rs:289)	 tracepoint registered: syscalls:sys_enter_execve
+[ INFO ] (src/tracepoint/mod.rs:289)	 tracepoint registered: fuse:virtiofs_submit
+[ INFO ] (src/tracepoint/mod.rs:289)	 tracepoint registered: fuse:virtiofs_complete
+[ INFO ] (src/tracepoint/mod.rs:289)	 tracepoint registered: fuse:fuse_request_queue
+[ INFO ] (src/tracepoint/mod.rs:289)	 tracepoint registered: fuse:fuse_reply_complete
+[ INFO ] (src/tracepoint/mod.rs:289)	 tracepoint registered: fuse:fuse_request_dequeue
+[ INFO ] (src/tracepoint/mod.rs:289)	 tracepoint registered: fuse:virtiofs_bridge_wake
+[ INFO ] (src/tracepoint/mod.rs:289)	 tracepoint registered: fuse:virtiofs_queue_retry
+[ INFO ] (src/tracepoint/mod.rs:289)	 tracepoint registered: fuse:virtiofs_bridge_wait_exit
+[ INFO ] (src/tracepoint/mod.rs:289)	 tracepoint registered: fuse:virtiofs_bridge_wait_enter
+[ INFO ] (src/tracepoint/mod.rs:289)	 tracepoint registered: sched:sched_process_exec
+[ INFO ] (src/tracepoint/mod.rs:289)	 tracepoint registered: sched:sched_process_exit
+[ INFO ] (src/tracepoint/mod.rs:289)	 tracepoint registered: vfs:do_mkdir_at
+[ INFO ] (src/tracepoint/mod.rs:289)	 tracepoint registered: syscalls:sys_enter_openat
+[ INFO ] (src/driver/net/napi.rs:140)	 napi initialized successfully
+[ INFO ] (src/driver/pci/pci.rs:1118)	 Initializing PCI bus...
+[ INFO ] (src/driver/pci/pci.rs:1025)	 Checking all devices in PCI bus...
+[ INFO ] (src/driver/base/device/mod.rs:675)	 deivce: "0000:00:00.0"  dev parent: "pci"
+[ INFO ] (src/driver/base/device/bus.rs:453)	 MT bus 'pci' autoprobe driver
+[1;33m[ WARN ] [0m(src/driver/base/device/dd.rs:121)	 do_device_attach: allow_async is true, but currently not supported
+[1;33m[ WARN ] [0m(src/driver/base/device/dd.rs:127)	 do_device_attach: dev: '0000:00:00.0'
+[ INFO ] (src/driver/base/device/mod.rs:675)	 deivce: "0000:00:01.0"  dev parent: "pci"
+[ INFO ] (src/driver/base/device/bus.rs:453)	 MT bus 'pci' autoprobe driver
+[1;33m[ WARN ] [0m(src/driver/base/device/dd.rs:121)	 do_device_attach: allow_async is true, but currently not supported
+[1;33m[ WARN ] [0m(src/driver/base/device/dd.rs:127)	 do_device_attach: dev: '0000:00:01.0'
+[ INFO ] (src/driver/base/device/mod.rs:675)	 deivce: "0000:00:02.0"  dev parent: "pci"
+[ INFO ] (src/driver/base/device/bus.rs:453)	 MT bus 'pci' autoprobe driver
+[1;33m[ WARN ] [0m(src/driver/base/device/dd.rs:121)	 do_device_attach: allow_async is true, but currently not supported
+[1;33m[ WARN ] [0m(src/driver/base/device/dd.rs:127)	 do_device_attach: dev: '0000:00:02.0'
+[ INFO ] (src/driver/base/device/mod.rs:675)	 deivce: "0000:00:03.0"  dev parent: "pci"
+[ INFO ] (src/driver/base/device/bus.rs:453)	 MT bus 'pci' autoprobe driver
+[1;33m[ WARN ] [0m(src/driver/base/device/dd.rs:121)	 do_device_attach: allow_async is true, but currently not supported
+[1;33m[ WARN ] [0m(src/driver/base/device/dd.rs:127)	 do_device_attach: dev: '0000:00:03.0'
+[ INFO ] (src/driver/base/device/mod.rs:675)	 deivce: "0000:00:04.0"  dev parent: "pci"
+[ INFO ] (src/driver/base/device/bus.rs:453)	 MT bus 'pci' autoprobe driver
+[1;33m[ WARN ] [0m(src/driver/base/device/dd.rs:121)	 do_device_attach: allow_async is true, but currently not supported
+[1;33m[ WARN ] [0m(src/driver/base/device/dd.rs:127)	 do_device_attach: dev: '0000:00:04.0'
+[ INFO ] (src/driver/base/device/mod.rs:675)	 deivce: "0000:00:05.0"  dev parent: "pci"
+[ INFO ] (src/driver/base/device/bus.rs:453)	 MT bus 'pci' autoprobe driver
+[1;33m[ WARN ] [0m(src/driver/base/device/dd.rs:121)	 do_device_attach: allow_async is true, but currently not supported
+[1;33m[ WARN ] [0m(src/driver/base/device/dd.rs:127)	 do_device_attach: dev: '0000:00:05.0'
+[ INFO ] (src/driver/base/device/mod.rs:675)	 deivce: "0000:00:06.0"  dev parent: "pci"
+[ INFO ] (src/driver/base/device/bus.rs:453)	 MT bus 'pci' autoprobe driver
+[1;33m[ WARN ] [0m(src/driver/base/device/dd.rs:121)	 do_device_attach: allow_async is true, but currently not supported
+[1;33m[ WARN ] [0m(src/driver/base/device/dd.rs:127)	 do_device_attach: dev: '0000:00:06.0'
+[ INFO ] (src/driver/base/device/mod.rs:675)	 deivce: "0000:00:1d.0"  dev parent: "pci"
+[ INFO ] (src/driver/base/device/bus.rs:453)	 MT bus 'pci' autoprobe driver
+[1;33m[ WARN ] [0m(src/driver/base/device/dd.rs:121)	 do_device_attach: allow_async is true, but currently not supported
+[1;33m[ WARN ] [0m(src/driver/base/device/dd.rs:127)	 do_device_attach: dev: '0000:00:1d.0'
+[ INFO ] (src/driver/base/device/mod.rs:675)	 deivce: "0000:00:1d.1"  dev parent: "pci"
+[ INFO ] (src/driver/base/device/bus.rs:453)	 MT bus 'pci' autoprobe driver
+[1;33m[ WARN ] [0m(src/driver/base/device/dd.rs:121)	 do_device_attach: allow_async is true, but currently not supported
+[1;33m[ WARN ] [0m(src/driver/base/device/dd.rs:127)	 do_device_attach: dev: '0000:00:1d.1'
+[ INFO ] (src/driver/base/device/mod.rs:675)	 deivce: "0000:00:1d.2"  dev parent: "pci"
+[ INFO ] (src/driver/base/device/bus.rs:453)	 MT bus 'pci' autoprobe driver
+[1;33m[ WARN ] [0m(src/driver/base/device/dd.rs:121)	 do_device_attach: allow_async is true, but currently not supported
+[1;33m[ WARN ] [0m(src/driver/base/device/dd.rs:127)	 do_device_attach: dev: '0000:00:1d.2'
+[ INFO ] (src/driver/base/device/mod.rs:675)	 deivce: "0000:00:1d.7"  dev parent: "pci"
+[ INFO ] (src/driver/base/device/bus.rs:453)	 MT bus 'pci' autoprobe driver
+[1;33m[ WARN ] [0m(src/driver/base/device/dd.rs:121)	 do_device_attach: allow_async is true, but currently not supported
+[1;33m[ WARN ] [0m(src/driver/base/device/dd.rs:127)	 do_device_attach: dev: '0000:00:1d.7'
+[ INFO ] (src/driver/base/device/mod.rs:675)	 deivce: "0000:00:1f.0"  dev parent: "pci"
+[ INFO ] (src/driver/base/device/bus.rs:453)	 MT bus 'pci' autoprobe driver
+[1;33m[ WARN ] [0m(src/driver/base/device/dd.rs:121)	 do_device_attach: allow_async is true, but currently not supported
+[1;33m[ WARN ] [0m(src/driver/base/device/dd.rs:127)	 do_device_attach: dev: '0000:00:1f.0'
+[ INFO ] (src/driver/base/device/mod.rs:675)	 deivce: "0000:00:1f.2"  dev parent: "pci"
+[ INFO ] (src/driver/base/device/bus.rs:453)	 MT bus 'pci' autoprobe driver
+[1;33m[ WARN ] [0m(src/driver/base/device/dd.rs:121)	 do_device_attach: allow_async is true, but currently not supported
+[1;33m[ WARN ] [0m(src/driver/base/device/dd.rs:127)	 do_device_attach: dev: '0000:00:1f.2'
+[ INFO ] (src/driver/base/device/mod.rs:675)	 deivce: "0000:00:1f.3"  dev parent: "pci"
+[ INFO ] (src/driver/base/device/bus.rs:453)	 MT bus 'pci' autoprobe driver
+[1;33m[ WARN ] [0m(src/driver/base/device/dd.rs:121)	 do_device_attach: allow_async is true, but currently not supported
+[1;33m[ WARN ] [0m(src/driver/base/device/dd.rs:127)	 do_device_attach: dev: '0000:00:1f.3'
+[ INFO ] (src/driver/pci/pci.rs:1124)	 Total pci device and function num = 16
+[ INFO ] (src/driver/pci/pci.rs:1141)	 Found pci standard device with class code =6 subclass=0 status=0x0 
+[ INFO ] (src/driver/pci/pci.rs:1141)	 Found pci standard device with class code =3 subclass=0 status=0x0 
+[ INFO ] (src/driver/pci/pci.rs:1133)	 Found pci standard device with class code =12 subclass=3, bdf=bus 0 device 2 function0
+[ INFO ] (src/driver/pci/pci.rs:1133)	 Found pci standard device with class code =7 subclass=128, bdf=bus 0 device 3 function0
+[ INFO ] (src/driver/pci/pci.rs:1133)	 Found pci standard device with class code =2 subclass=0, bdf=bus 0 device 4 function0
+[ INFO ] (src/driver/pci/pci.rs:1133)	 Found pci standard device with class code =0 subclass=255, bdf=bus 0 device 5 function0
+[ INFO ] (src/driver/pci/pci.rs:1133)	 Found pci standard device with class code =1 subclass=0, bdf=bus 0 device 6 function0
+[ INFO ] (src/driver/pci/pci.rs:1147)	 Found pci-to-pci bridge device with class code =6 subclass=4 status=0xb0 cap_pointer=0x4c
+[ INFO ] (src/driver/pci/pci.rs:1147)	 Found pci-to-pci bridge device with class code =6 subclass=4 status=0x10 cap_pointer=0x54
+[ INFO ] (src/driver/pci/pci.rs:1141)	 Found pci standard device with class code =12 subclass=3 status=0x0 
+[ INFO ] (src/driver/pci/pci.rs:1141)	 Found pci standard device with class code =12 subclass=3 status=0x0 
+[ INFO ] (src/driver/pci/pci.rs:1141)	 Found pci standard device with class code =12 subclass=3 status=0x0 
+[ INFO ] (src/driver/pci/pci.rs:1141)	 Found pci standard device with class code =12 subclass=3 status=0x0 
+[ INFO ] (src/driver/pci/pci.rs:1141)	 Found pci standard device with class code =6 subclass=1 status=0x0 
+[ INFO ] (src/driver/pci/pci.rs:1133)	 Found pci standard device with class code =1 subclass=6, bdf=bus 0 device 31 function2
+[ INFO ] (src/driver/pci/pci.rs:1141)	 Found pci standard device with class code =12 subclass=5 status=0x0 
+[ INFO ] (src/driver/pci/pci.rs:1174)	 PCI bus initialized.
+[ INFO ] (src/driver/base/device/bus.rs:453)	 MT bus 'event_source' autoprobe driver
+[1;33m[ WARN ] [0m(src/driver/base/device/dd.rs:121)	 do_device_attach: allow_async is true, but currently not supported
+[1;33m[ WARN ] [0m(src/driver/base/device/dd.rs:127)	 do_device_attach: dev: 'kprobe'
+[ INFO ] (src/driver/base/device/bus.rs:453)	 MT bus 'event_source' autoprobe driver
+[1;33m[ WARN ] [0m(src/driver/base/device/dd.rs:121)	 do_device_attach: allow_async is true, but currently not supported
+[1;33m[ WARN ] [0m(src/driver/base/device/dd.rs:127)	 do_device_attach: dev: 'uprobe'
+[ INFO ] (src/driver/base/device/mod.rs:675)	 deivce: "virtio0"  dev parent: "0000:00:03.0"
+[ INFO ] (src/driver/base/device/bus.rs:453)	 MT bus 'virtio' autoprobe driver
+[1;33m[ WARN ] [0m(src/driver/base/device/dd.rs:121)	 do_device_attach: allow_async is true, but currently not supported
+[1;33m[ WARN ] [0m(src/driver/base/device/dd.rs:127)	 do_device_attach: dev: 'virtio0'
+[ INFO ] (crates/virtio-drivers/src/device/net/dev_raw.rs:81)	 negotiated_features Features(MAC | STATUS | RING_EVENT_IDX | VERSION_1)
+[ INFO ] (src/driver/base/device/mod.rs:675)	 deivce: "virtio1"  dev parent: "0000:00:04.0"
+[ INFO ] (src/driver/base/device/bus.rs:453)	 MT bus 'virtio' autoprobe driver
+[1;33m[ WARN ] [0m(src/driver/base/device/dd.rs:121)	 do_device_attach: allow_async is true, but currently not supported
+[1;33m[ WARN ] [0m(src/driver/base/device/dd.rs:127)	 do_device_attach: dev: 'virtio1'
+[ INFO ] (src/driver/base/device/mod.rs:675)	 deivce: "eth2"  dev parent: "virtio1"
+[ INFO ] (crates/virtio-drivers/src/device/blk.rs:69)	 config: 0xffffa1003ffea000
+[ INFO ] (crates/virtio-drivers/src/device/blk.rs:75)	 found a block device of size 1058046KB
+[ INFO ] (src/driver/base/device/mod.rs:675)	 deivce: "virtio2"  dev parent: "0000:00:06.0"
+[ INFO ] (src/driver/base/device/bus.rs:453)	 MT bus 'virtio' autoprobe driver
+[1;33m[ WARN ] [0m(src/driver/base/device/dd.rs:121)	 do_device_attach: allow_async is true, but currently not supported
+[1;33m[ WARN ] [0m(src/driver/base/device/dd.rs:127)	 do_device_attach: dev: 'virtio2'
+[41m[ ERROR ] [0m(src/driver/virtio/mmio.rs:13)	 virtio_probe_mmio failed: ENODEV
+[ INFO ] (src/driver/base/device/mod.rs:675)	 deivce: "i8042"  dev parent: "platform"
+[ INFO ] (src/driver/base/device/bus.rs:453)	 MT bus 'platform' autoprobe driver
+[1;33m[ WARN ] [0m(src/driver/base/device/dd.rs:121)	 do_device_attach: allow_async is true, but currently not supported
+[1;33m[ WARN ] [0m(src/driver/base/device/dd.rs:127)	 do_device_attach: dev: 'i8042'
+[ INFO ] (src/driver/base/device/mod.rs:675)	 deivce: "serio1"  dev parent: "i8042"
+[ INFO ] (src/driver/base/device/bus.rs:453)	 MT bus 'serio' autoprobe driver
+[1;33m[ WARN ] [0m(src/driver/base/device/dd.rs:121)	 do_device_attach: allow_async is true, but currently not supported
+[1;33m[ WARN ] [0m(src/driver/base/device/dd.rs:127)	 do_device_attach: dev: 'serio1'
+[ INFO ] (src/driver/base/device/mod.rs:675)	 deivce: "rtc_cmos"  dev parent: "platform"
+[ INFO ] (src/driver/base/device/bus.rs:453)	 MT bus 'platform' autoprobe driver
+[1;33m[ WARN ] [0m(src/driver/base/device/dd.rs:121)	 do_device_attach: allow_async is true, but currently not supported
+[1;33m[ WARN ] [0m(src/driver/base/device/dd.rs:127)	 do_device_attach: dev: 'rtc_cmos'
+[ INFO ] (src/driver/base/device/mod.rs:675)	 deivce: "rtc0"  dev parent: "rtc_cmos"
+[ INFO ] (src/driver/rtc/class.rs:108)	 Setting system clock to 2026-11-14 15:10:11 UTC (1794669011)
+[ INFO ] (src/driver/base/device/mod.rs:675)	 deivce: "serial8250"  dev parent: "platform"
+[ INFO ] (src/driver/base/device/bus.rs:453)	 MT bus 'platform' autoprobe driver
+[1;33m[ WARN ] [0m(src/driver/base/device/dd.rs:121)	 do_device_attach: allow_async is true, but currently not supported
+[1;33m[ WARN ] [0m(src/driver/base/device/dd.rs:127)	 do_device_attach: dev: 'serial8250'
+[1;33m[ WARN ] [0m(src/driver/base/device/mod.rs:1364)	 device_links_force_bind not implemented
+[ INFO ] (src/driver/block/loop_device/mod.rs:47)	 Loop control device registered.
+[ INFO ] (src/driver/block/loop_device/mod.rs:49)	 Loop control device initialized.
+[ INFO ] (src/driver/block/loop_device/manager.rs:215)	 Loop device id 0 (minor 0) added successfully.
+[ INFO ] (src/driver/block/loop_device/manager.rs:215)	 Loop device id 1 (minor 1) added successfully.
+[ INFO ] (src/driver/block/loop_device/manager.rs:215)	 Loop device id 2 (minor 2) added successfully.
+[ INFO ] (src/driver/block/loop_device/manager.rs:215)	 Loop device id 3 (minor 3) added successfully.
+[ INFO ] (src/driver/block/loop_device/manager.rs:215)	 Loop device id 4 (minor 4) added successfully.
+[ INFO ] (src/driver/block/loop_device/manager.rs:215)	 Loop device id 5 (minor 5) added successfully.
+[ INFO ] (src/driver/block/loop_device/manager.rs:215)	 Loop device id 6 (minor 6) added successfully.
+[ INFO ] (src/driver/block/loop_device/manager.rs:215)	 Loop device id 7 (minor 7) added successfully.
+[ INFO ] (src/driver/block/loop_device/manager.rs:304)	 Loop devices initialized
+[ INFO ] (src/driver/tty/virtual_terminal/mod.rs:264)	 Set vc by cmdline: hvc0
+[ INFO ] (src/arch/x86_64/driver/apic/mod.rs:655)	 Initializing apic for cpu ProcessorId(1)
+[ INFO ] (src/arch/x86_64/driver/apic/x2apic.rs:50)	 x2APIC software enabled.
+[ INFO ] (src/arch/x86_64/driver/apic/mod.rs:660)	 x2APIC initialized for cpu ProcessorId(1)
+[ INFO ] (src/arch/x86_64/driver/apic/mod.rs:684)	 Apic initialized.
+[ INFO ] (src/smp/init.rs:64)	 Successfully started AP 1
+[ INFO ] (src/smp/cpu/mod.rs:288)	 All non-boot CPUs have been brought up
+[ INFO ] (src/exception/workqueue.rs:255)	 Workqueue test: Hello from worker thread!
+[ INFO ] (src/filesystem/vfs/vcore.rs:391)	 Try to mount root fs...
+[ INFO ] (src/filesystem/vfs/vcore.rs:104)	 VFS: Migrating filesystems...
+[ INFO ] (src/filesystem/devpts/mod.rs:423)	 DevPtsFs mounted.
+[ INFO ] (src/filesystem/vfs/vcore.rs:170)	 VFS: Migrate filesystems done!
+[ INFO ] (src/filesystem/vfs/vcore.rs:485)	 Successfully migrate rootfs to ext4!
+[ INFO ] (src/init/initial_kthread.rs:161)	 Boot with specified init process: "/bin/busybox"
+[rcS] Running system init script...
+ ____                                      ___   ____ 
+|  _ \  _ __   __ _   __ _   ___   _ __   / _ \ / ___| 
+| | | || '__| / _` | / _` | / _ \ | '_ \ | | | |\___ \  
+| |_| || |   | (_| || (_| || (_) || | | || |_| | ___) |
+|____/ |_|    \__,_| \__, | \___/ |_| |_| \___/ |____/ 
+                     |___/     
+ DragonOS - Lightweight Cloud-Native Kernel
+ Copyright: DragonOS Community. 2022-2026, All rights reserved.
+ Version: [1;32m#1-dragonos-0.4.0 Sat Nov 14 07:02:48 UTC 2026[0m
+ 
+You can visit the project via:
+
+[1;36m    Official Website: https://DragonOS.org
+[0m[1;33m    GitHub: https://github.com/DragonOS-Community/DragonOS
+[0m
+ Maintainer: longjin <longjin@DragonOS.org>
+ Get contact with the community: <contact@DragonOS.org>
+
+[1;33m Welcome to join our development community on GitHub!
+[0m
+
+Please press Enter to activate this console. 
+[01;32mroot@dragonos[00m:[01;34m~[00m# /root/deep/test_ramfs_removed_dir
+PASS live directory links
+PASS remove empty open directory
+PASS removed path absent
+PASS removed descriptor links zero
+openat removed directory rc=-1 errno=2
+PASS openat removed directory
+mkdirat removed directory rc=-1 errno=2
+PASS mkdirat removed directory
+symlinkat removed directory rc=-1 errno=2
+PASS symlinkat removed directory
+linkat removed directory rc=-1 errno=2
+PASS linkat removed directory
+renameat removed directory rc=-1 errno=2
+PASS renameat removed directory
+PASS source preserved
+PASS fchdir retained directory
+open removed cwd rc=-1 errno=2
+PASS open removed cwd
+PASS removed cwd links zero
+RESULT total=13 failed=0
+[01;32mroot@dragonos[00m:[01;34m~[00m# echo RAW_EXIT=$?
+RAW_EXIT=0
+[01;32mroot@dragonos[00m:[01;34m~[00m# sh /root/deep/reproduce.sh
+links=0
+touch: ghost: No such file or directory
+TOUCH_RC=1
+mkdir: can't create directory 'child': No such file or directory
+MKDIR_RC=1
+total 0
+drwxr-xr-x    0 root     root             0 Jan  1  1970 [1;34m.[m
+drwxr-xr-x    2 root     root             0 Jan  1  1970 [1;34m..[m
+[01;32mroot@dragonos[00m:[01;34m~[00m# sh /root/deep/live-controls.sh
+PASS_LIVE_HARDLINK
+PASS_LIVE_RENAME
+PASS_LIVE_UNLINK
+LIVE_CONTROLS_COMPLETE
+[01;32mroot@dragonos[00m:[01;34m~[00m# echo LIVE_EXIT=$?
+LIVE_EXIT=0
+[01;32mroot@dragonos[00m:[01;34m~[00m# sha256sum /bin/busybox /root/deep/test_ramfs_removed_dir
+62586a7cb1c9e6583ccbe15fa9fa928d91a56610e0b93f7de934337a1a39fc5d  /bin/busybox
+ac7e39121fc8e080da7d1a82f0b920f8a831600ec02045adec6afa64d7cfbf4c  /root/deep/test_ramfs_removed_dir
+[01;32mroot@dragonos[00m:[01;34m~[00m# sync
+[01;32mroot@dragonos[00m:[01;34m~[00m# echo DEEP_FIXED_END
+DEEP_FIXED_END
+[01;32mroot@dragonos[00m:[01;34m~[00m# 

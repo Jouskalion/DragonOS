@@ -1,0 +1,20 @@
+PASS live directory links
+PASS remove empty open directory
+PASS removed path absent
+PASS removed descriptor links zero
+openat removed directory rc=-1 errno=2
+PASS openat removed directory
+mkdirat removed directory rc=-1 errno=2
+PASS mkdirat removed directory
+symlinkat removed directory rc=-1 errno=2
+PASS symlinkat removed directory
+linkat removed directory rc=-1 errno=2
+PASS linkat removed directory
+renameat removed directory rc=-1 errno=2
+PASS renameat removed directory
+PASS source preserved
+PASS fchdir retained directory
+open removed cwd rc=-1 errno=2
+PASS open removed cwd
+PASS removed cwd links zero
+RESULT total=13 failed=0

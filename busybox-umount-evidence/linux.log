@@ -1,0 +1,22 @@
+PASS space rc=-1 errno=2 marker=1
+PASS tab rc=-1 errno=2 marker=1
+PASS newline rc=-1 errno=2 marker=1
+PASS cr rc=-1 errno=2 marker=1
+PASS nbsp rc=-1 errno=2 marker=1
+PASS ideographic-space rc=-1 errno=2 marker=1
+PASS leading-space rc=-1 errno=2 marker=1
+PASS empty-path rc=-1 errno=2 marker=1
+PASS lazy-space rc=-1 errno=2 marker=1
+PASS ordinary-unmount rc=0 errno=0 marker=0
+PASS ordinary-lazy rc=0 errno=0 marker=0
+PASS nofollow rc=-1 errno=22 marker=1
+RESULT total=12 failed=0
+RAW_EXIT=0
+umount: can't unmount /tmp/bb3-cli.boanKm/m : No such file or directory
+original-mount
+UMOUNT_EXIT=1 MARKER_EXIT=0
+CLI_EXIT=0
+Linux LAPTOP-SJUTKJH2 6.18.54.1-microsoft-standard-WSL2 #1 SMP PREEMPT_DYNAMIC Tue Oct  6 19:13:07 UTC 2026 x86_64 GNU/Linux
+BusyBox v1.36.1 () multi-call binary.
+62586a7cb1c9e6583ccbe15fa9fa928d91a56610e0b93f7de934337a1a39fc5d  outputs/busybox
+851dc6ed740c348851def4ead0b032af9b39d081f47ce28b601d9a58e1da2a90  outputs/test_umount_path_whitespace
